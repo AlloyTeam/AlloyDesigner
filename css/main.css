@@ -1,0 +1,104 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    font-family: Microsoft Yahei;
+    font-size: 14px;
+}
+.header .logo{
+    height: 118px;
+    background: #464e61;
+    border-bottom: 1px solid #c4c4c4;
+}
+.logoWrapper{
+    width: 1003px;
+    margin: 0 auto;
+    background: url(../images/logo.png) no-repeat 36px 24px;
+    height: 100%;
+}
+.logoWrapper .nav{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: right;
+    padding-top: 32px;
+}
+.nav li{
+    display: inline-block;
+    padding: 10px;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    background: rgb(125, 118, 135);
+    border-radius: 4px;
+    margin-right: 19px;
+    cursor: pointer;
+}
+.nav li:hover{
+    background: rgb(111, 167, 208);
+}
+.alloyIntro{
+    height: 400px;
+    text-align:center;
+    vertical-align: middle;
+    line-height: 400px;
+    background: rgb(172, 173, 173);
+}
+.alloyIntro img{
+    vertical-align: middle;
+}
+.banner{
+    margin: 0;
+    padding: 0;
+}
+.banner .wrapper{
+    width: 1000px;
+    margin: 0 auto;
+    border-bottom: 2px solid #D6D5D5;
+    border-top: 2px solid #FFFDFD;
+    overflow: auto;
+    height: 427px;
+    
+}
+.banner li{
+    width: 100%;
+    height: 430px;
+    padding: 0;
+    display: block;
+    background: url(img/bg.jpg);
+}
+.banner li img{
+    float: left;
+    margin: 0;
+    width: 437px;
+    max-height: 423px;
+}
+.intro{
+    color: #525463;
+    font-weight: 100;
+    font-size: 30px;
+    float: left;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+.intro h2{
+    font-size: inherit;
+    font-weight: inherit;
+}
+.intro p{
+    font-size: 24px;
+    width: 535px;
+    word-break: break-all;
+    color: #9B9B9B;
+}
+.footer{
+    height: 80px;
+    background: #464e61;
+    line-height: 80px;
+}
+.footer .copyright{
+    text-align:center;
+    color: #fff;
+}
+.footer .copyright a{
+    color: inherit;
+    text-decoration:none;
+}
