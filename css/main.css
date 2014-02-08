@@ -45,49 +45,70 @@ html, body{
 .alloyIntro img{
     vertical-align: middle;
 }
+.main{
+    background: url(img/bg.jpg);
+}
 .banner{
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
+    width: 1000px;
+    overflow: auto;
 }
 .banner .wrapper{
-    width: 1000px;
+    /* width: 511px; */
     margin: 0 auto;
     border-bottom: 2px solid #D6D5D5;
     border-top: 2px solid #FFFDFD;
     overflow: auto;
-    height: 427px;
+    /* height: 427px; */
     
+    /* max-width: 1048px; */
+    /* float: left; */
+    text-align: center;
 }
 .banner li{
-    width: 100%;
-    height: 430px;
+    width: 50%;
+    /* height: 430px; */
     padding: 0;
     display: block;
     background: url(img/bg.jpg);
+    float: left;
 }
 .banner li img{
-    float: left;
+    /* float: left; */
     margin: 0;
-    width: 437px;
-    max-height: 423px;
+    width: 224px;
+    height: auto;
+    /* max-height: 423px; */
+    margin-top: -16px;
 }
 .intro{
     color: #525463;
     font-weight: 100;
-    font-size: 30px;
-    float: left;
-    padding-left: 20px;
-    padding-top: 20px;
+    font-size: 20px;
+    /* float: left; */
+    padding-left: 10px;
+    padding-top: 10px;
+    margin-bottom: 42px;
+    /* width: inherit; */
+    margin-top: -63px;
 }
 .intro h2{
     font-size: inherit;
     font-weight: inherit;
 }
 .intro p{
-    font-size: 24px;
-    width: 535px;
+    font-size: 18px;
+    /* width: 100%; */
     word-break: break-all;
     color: #9B9B9B;
+    text-align: left;
+    margin: 0 23px;
+    
+    overflow: auto;
+}
+.intro p.point{
+    text-align: center;
 }
 .footer{
     height: 80px;
@@ -101,4 +122,24 @@ html, body{
 .footer .copyright a{
     color: inherit;
     text-decoration:none;
+}
+.getPlugin{
+    font-size: 18px;
+
+    color: rgb(255, 255, 255);
+    background: rgb(235, 166, 83);
+    /* min-width: 100px; */
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration:none;
+    margin-top: 20px;
+    /* margin-bottom: 0px; */
+    /* float: left; */
+    /* width: 150px; */
+    margin-left: 0 auto;
+}
+.getPlugin:hover{
+    background: rgb(186, 140, 32);
 }
