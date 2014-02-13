@@ -56,6 +56,7 @@ var Stage = {
       this.status.playing = 0;
       this.clearStage();
 
+      ctx.font = "40px Arial";
       ctx.fillText("Lose!", WIDTH / 2, HEIGHT / 2);
   }
 };
@@ -176,6 +177,7 @@ Pipe.prototype = {
 
        if(this.checkCollision()){
          Stage.lose();
+         return;
        }
 
        if(x < - PIPE_W){
@@ -255,7 +257,7 @@ var Pipes = {
 
   step: function(){
      for(var i = 0; i < this.pipes.length; i ++){
-       this.pipes[i].step();
+       Stage.status.playing && this.pipes[i].step();
      }
   },
 
