@@ -149,7 +149,7 @@ var Pipe = function(startX, startY){
   this.y = startY || 0;
 
   //空隙的位置
-  this.kPosition = (HEIGHT - 100) * Math.random() + 50;
+  this.kPosition = ((HEIGHT - PIPE_KH) * 0.6) * Math.random() + (HEIGHT - PIPE_KH) * 0.2;
 
   this.t0 = + new Date;
 };
@@ -256,8 +256,9 @@ var Pipes = {
   },
 
   step: function(){
-     for(var i = 0; i < this.pipes.length; i ++){
-       Stage.status.playing && this.pipes[i].step();
+     var pipes = this.pipes.concat([]);
+     for(var i = 0; i < pipes.length; i ++){
+       Stage.status.playing && pipes[i].step();
      }
   },
 
