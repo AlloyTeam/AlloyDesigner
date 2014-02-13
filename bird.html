@@ -17,6 +17,7 @@ var ctx = canvas.getContext("2d");
 
 var WIDTH = document.body.offsetWidth;
 var HEIGHT = document.body.offsetHeight;
+var SCORE = 0;
 
 canvas.width = WIDTH;
 canvas.height = HEIGHT;
@@ -67,7 +68,7 @@ var Stage = {
       this.clearStage();
 
       ctx.font = "40px Arial";
-      ctx.fillText("Lose!", WIDTH / 2, HEIGHT / 2);
+      ctx.fillText("Lose! \n" + SCORE + "分", WIDTH / 2, HEIGHT / 2);
   }
 };
 
@@ -272,6 +273,8 @@ var Pipes = {
   addPipe: function(){
      this.pipes.shift();
      this.pipes.push(new Pipe(this.pipes[this.pipes.length - 1].x + PIPE_SPLIT_DIS));
+
+     SCORE ++;
   }
 };
 
