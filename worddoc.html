@@ -1,26 +1,224 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="zh">
 <head>
 	<meta charset="UTF-8">
   <link media="all" rel="stylesheet" href="css/main.css" type="text/css" />
-	<title>AlloyDesigner——For Fast Web Development</title>
+	<title><span class='alloydesigner'>AlloyDesigner</span>——For Fast Web Development</title>
+  <style type="text/css">
+h2, h3{
+  font-family: "Helvetica Neue",Helvetica,STHeiTi,"Microsoft YaHei",sans-serif;
+  font-weight: 500;
+  font-size: 26px;
+}
+h3{
+  font-size: 20px;
+}
+img{
+  max-width: 400px;
+  margin: 8px auto;
+  display: block;
+}
+.main{
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+}
+.mainContent{
+  margin: 0 auto;
+  padding-left: 30px;
+  width: 1000px;
+}
+.num{
+  color: rgb(13, 120, 186);
+  font-size: 24px;
+  font-family: Georgia;
+  margin-right: 10px;
+}
+p{
+  line-height: 2;
+  font-size: 14px;
+}
+a{
+  height: 20px;
+  line-height: 20px;
+}
+pre{
+  background: #333;
+  color: #fff;
+  font-family: Consolas, Monaco, 'Andale Mono', monospace;
+  border-radius: 4px;
+  padding: 4px;
+  font-size: 16px;
+}
+.warning{
+  background: rgb(251, 77, 29);
+  color: #fff;
+  border-radius: 4px;
+  padding: 5px;
+  margin-right: 6px;
+}
+.alloydesigner{
+  color: #fcb065;
+  font-family: Michroma,'Segoe UI Light','Segoe UI','Segoe UI WP','Microsoft Jhenghei','微软雅黑',sans-serif,Times;
+  margin: 0 5px;
+}
+p .alloydesigner{
+  font-family: Michroma,'Segoe UI Light','Segoe UI','Segoe UI WP','Microsoft Jhenghei','微软雅黑',sans-serif,Times;
+  background: #fcb065;
+  color: #fff;
+  margin: 0 5px;
+  padding: 5px;
+  border-radius: 4px;
+}
+  </style>
 </head>
 <body>
 <div class="header">
   <div class="logo">
     <div class="logoWrapper">
+      <a href="./" class='homeLink'></a>
       <ul class="nav"><li>文档教程</li><li>视频教程</li></ul>
     </div>
   </div>
 </div>	
 <div class="main">
-   <ul class="banner">
-     <li>fasdfasdfdasdf</li>
-   </ul>
+  <div class="mainContent">
+      <h2>怎么引入<span class='alloydesigner'>AlloyDesigner</span>?</h2>
+      <h3>Chrome扩展插件的方式使用<span class='alloydesigner'>AlloyDesigner</span>(Chrome)</h3>
+      <p><span class='num'>1.</span><a href='https://chrome.google.com/webstore/detail/alloydesigner/ojooeaohlmgpcjajikhmibcnbebfenid?hl=zh-CN&authuser=1' target='_blank' class='getPlugin'>点击此处</a> 在Chrome Web Store上安装<span class='alloydesigner'>AlloyDesigner</span>扩展插件
+      <br />
+      <img src="docimg/installfromstore.png" />
+      <br />
+      <span class='num'>2.</span>点击免费，然后添加，就会添加到Chrome的地址栏的右边
+      <br />
+
+      <img src="docimg/installed.png" />
+
+      <span class='num'>3.</span>打开需要开发或者测试的页面，然后点击<span class='alloydesigner'>AlloyDesigner</span>的图标，会在页面下出现<span class='alloydesigner'>AlloyDesigner</span>的工具条，然后打开右边的加载视觉稿按钮，选择要加载的视觉稿
+
+      <img src="docimg/toolbar.png" />
+      至此视觉稿就被加载进来了，重新刷新页面也不会丢失视觉稿
+      </p>
+
+      <h3>手动嵌入代码的方式使用<span class='alloydesigner'>AlloyDesigner</span>(IE7 +)</h3>
+      <p><span class='num'>1.</span>在官网上下载最新的<span class='alloydesigner'>AlloyDesigner</span>代码版alloydesigner.js
+        <br />
+         <span class='num'>2.</span>在要测试或者开发项目的页面中底部把<span class='alloydesigner'>AlloyDesigner</span>引进来
+
+         <pre>
+  &lt;script type="text/javascript" src="alloydesigner.js">&lt;/script></pre>
+
+         <span class='num'>3.</span>将视觉文件保存成home.jpg或者home.png，放在与页面所在同目录下
+        <img src="docimg/file.png" style="width:268px;" />
+
+        或者视觉稿为其它文件，手动设置视觉文件路径
+         <pre>
+  &lt;script type="text/javascript">
+    $AD.set("design/design.jpg");
+  &lt;/script></pre>
+
+        <span class='num'>4.</span>刷新页面，即可以看到视觉文件被引入进来了
+      </p>
+
+      <h2>怎么使用<span class='alloydesigner'>AlloyDesigner</span>?</h2>
+      <h3>用于调整页面与测试</h3>
+      <p>
+      <span class='num'>1.</span>使用鼠标移动视觉稿，使视觉稿和页面近似重合<br />
+      <img src="docimg/alterpic.png" />
+      <span class='num'>2.</span>使用方向键微调视觉稿，使视觉稿和页面的参考点完全重合，没有重影<br />
+      <span class='num'>3.</span>这时候页面不规范的部分就会有重影。
+      <img src="docimg/alterpic2.png" />
+      <span class='num'>4.</span>点击固定按键或按Alt+F键，固定视觉稿
+      <img src="docimg/fix.png" />
+      固定后仍然可以使用Ctrl + 方向键微调视觉视觉稿的位置<br />
+      <span class='num'>5.</span>在需要调整的地方，点击右键审查元素，审查元素
+      <img src="docimg/lookup.png" />
+      <span class='num'>6.</span>对样式进行调整，直到重合
+      <img src="docimg/altercss.png" />
+      <span class='num'>7.</span>记录样式修改。将修改的样式手动写在文件中，或者使用Chrome的Workspace功能自动更改。(查看怎么配置Workspace)
+      <img src="docimg/manual.png" style="width: 395px;" />或
+      <img src="docimg/workspace.png" />
+      </p>
+
+      <h3>直接用于开发页面(For Chrome)</h3>
+      <p>
+      <span class='alloydesigner'>AlloyDesigner</span>可以直接用于开发页面，这种开发更加便捷与直接，较传统的开发模式，真正具有即见即所得的能力。<br />
+      此时Chrome F12工具充当编辑器，<span class='alloydesigner'>AlloyDesigner</span>提供制作蓝本与其他辅助工具支持。
+      </p>
+
+      <p>
+      <span class='num'>1.</span>配置Workspace功能，自动保存F12中的修改。这样，浏览器就充当了部分编辑器的功能<br />
+      <span class='num'>2.</span>加载视觉稿，将视觉稿固定在页面最上面合适的位置<br />
+      <span class='num'>3.</span>点击固定按键固定（Alt + F)，视觉稿做为页面的背景，然后可以适当调整透明度（使用Alt + 上/下键）<br />
+      <span class='num'>4.</span>使用测试工具对页面进行测绘，然后将样式通过F12写入文件中去<br />
+      <span class='num'>5.</span>使用取色工具，取视觉稿颜色<br />
+      <span class='num'>6.</span>完成开发
+      </p>
+
+      <h3>测试工具的使用</h3>
+      <p>测试工具可以测量每个div的像素宽高、距离等<br />
+        使用快捷键Alt + D进行测量模式
+      <img src="docimg/celiang.png" alt="" />
+      </p>
+
+      <h3>不透明度调节工具的使用</h3>
+      <p>
+      不透明度调节主要调节视觉稿与body的不透明度，达到一个合适的不透明度，更易于开发<br />
+      在视觉稿固定前，视觉图片处于body之上，这时调节的是视觉图片的不透明度，固定之后，文档处于视觉图片之上，这时调节的是body的不透明度。
+      <img src="docimg/opacity.png" alt="" />
+      </p>
+
+      <h3>取色工具</h3>
+      <p>
+      取色工具用于取视觉图片上的颜色<br />
+      点击取色工具(Alt + X)按钮进入取色模式, 在视觉稿要取色的位置上点击进行取色，然后在右下角面板中的颜色值复制即可
+      </p>
+
+      <h3>CSS助手</h3>
+      <p>css助手用于快速查看应用于元素上的样式<br />
+      点击css助手按钮(Alt + C)进入CSS助手模式，鼠标在元素上停留即可看到应用于元素上的样式规则
+      <img src="docimg/css.png" alt="" />
+      </p>
+
+      <h2>配置Chrome Workspace功能</h2>
+      <p>
+      Chrome Workspace功能是将在Chrome开发者工具（F12）中对文档的修改直接应用于对应文件中。<br />
+      由于Chrome并不知道当然文档对应用的文件为哪个，所以需要配置Workspace的映射关系来告诉Chrome对哪个文件做修改<br />
+      <br />
+
+      使用Workspace条件：
+      </p>
+      <ul>
+        <li>Chrome V31+(正式版)</li>
+        <li>本地服务器开发</li>
+      </ul>
+
+      <p>
+        <span class='num'>1.</span>点击F12工具的设置按钮
+      <img src="docimg/w_1.png" alt="" />
+      <span class='num'>2.</span>点击左侧的workspace
+      <img src="docimg/w_2.png" alt="" />
+      <span class='num'>3.</span>点击Add folder
+      <img src="docimg/w_3.png" alt="" />
+      <span class='num'>4.</span>选择服务器所在的根目录，之后确定会chrome会在上面做出一个提示，点击允许
+      <img src="docimg/w_4.png" alt="" />
+      <span class='num'>5.</span>双击下图所示的地方，配置映射关系
+      <img src="docimg/w_5.png" alt="" />
+      <span class='num'>6.</span>填写映射关系，视具体情况填写，<span class='warning'>注意</span>右边的/一定要填写（关键性步骤）
+      <img src="docimg/w_6.png" alt="" />
+      然后点击空白处，完成填写<br />
+      <span class='num'>7.</span>然后回到一个页面中去，试着去更改一个样式数值，验证是否生效
+      <img src="docimg/w_7.png" alt="" />
+      <img src="docimg/w_8.png" alt="" />
+
+      <span class='warning'>注意</span>Workspace只对外部引入的CSS样式有效！
+      </p>
+
+  </div>
 </div>
 <div class="footer">
   <div class="copyright">
-    Copyright ©  2013 <a href="http://www.alloyteam.com" target="_blank">Tencent AlloyTeam.</a> All Rights Reserved. 
+    Copyright ©  2013 <a href="http://www.alloyteam.com" target="_blank">Tencent AlloyTeam.</a> All Rights Reserved.
   </div>
 </div>
 </body>

@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>bird</title>
+</head>
+<body>
+<canvas id="ctx" width="600" height="400"></canvas>	
+
+<script type="text/javascript">
+var canvas = document.getElementById("ctx");
+var ctx = canvas.getContext("2d");
+
+var WIDTH = 600;
+var HEIGHT = 400;
+
+ctx.width = WIDTH;
+ctx.height = HEIGHT;
+
+var Stage = {
+  init: function(){
+     this.Pipes = new Pipe();
+  },
+  status: {
+     playing: 0
+  },
+  step: function(){
+     var _this = this;
+
+     this.clearStage();
+     Bird.step();
+
+     this.Pipes.step();
+
+     if(this.status.playing){
+       setTimeout(function(){
+           _this.step();
+       }, 0);
+     }
+  },
+
+  clearStage: function(){
+     ctx.clearRect(0, 0, WIDTH, HEIGHT);
+  },
+
+  start: function(){
+      this.status.playing = 1;
+      this.step();
+  }
+};
+
+var R = 14;
+
+//计算重力加速度
+//预期时间
+var expectT = 0.34;
+
+//预期位移
+var expectS = 20;
+var G = - (2 * expectS / (expectT * expectT));
+
+var Bird = {
+    v0: 0,
+    t0: 0,
+
+    x0: 0,
+    y0: 0,
+
+    x: 0,
+    y: 0,
+
+    step: function(){
+       
+      //以s为单位
+      var t = (+ new Date - this.t0) / 1000;
+
+      var s = this.v0 * t - 0.5 * G * t * t;
+
+      var y = this.y0 + s;
+
+      this.y = y;
+
+
+      this.drawBird(this.x0, y);
+    },
+
+    init: function(){
+        var x0 = 40;
+        var y0 = ~~ (HEIGHT / 2);
+
+        this.x0 = x0;
+        this.y0 = y0;
+
+        this.v0 = 10;
+        this.t0 = + new Date();
+
+        this.x = x0;
+
+        this.eventBind();
+    },
+    
+    drawBird: function(x, y){
+        ctx.beginPath();
+        ctx.arc(x, y, R, 0, 2 * Math.PI);
+        ctx.fill();
+    },
+
+    eventBind: function(){
+        var _this = this;
+        document.body.onclick = function(){
+            console.log('sdf');
+            _this.x0 = _this.x;
+            _this.y0 = _this.y;
+            _this.t0 = + new Date;
+            _this.v0 = - 160;
+            
+        };
+    }
+};
+
+//PIPE的移动速度
+var PIPE_V = - 100;
+
+//PIPE宽度
+var PIPE_W = 20;
+
+//空隙高度
+var PIPE_KH = R * 2 + 30;
+var Pipe = function(startX, startY){
+  this.x0 = startX || WIDTH;
+  this.y0 = startY || 0;
+
+  this.x = startX || WIDTH;
+  this.y = startY || 0;
+
+  //空隙的位置
+  this.kPosition = 20;
+
+  this.t0 = + new Date;
+};
+
+Pipe.prototype = {
+    drawPipe: function(x, y){
+       var upperHeight = this.kPosition;
+       ctx.fillRect(x, 0, PIPE_W, upperHeight);
+
+       var lowerHeight = HEIGHT - this.kPosition - PIPE_KH; 
+       var lowerY = HEIGHT - lowerHeight;
+       ctx.fillRect(x, lowerY, PIPE_W, lowerHeight);
+
+    },
+    step: function(){
+       var t = (+ new Date - this.t0) / 1000;
+
+       var s = PIPE_V * t;
+
+       var x = this.x0 + s;
+
+       this.x = x;
+
+       this.drawPipe(x, this.y);
+    },
+
+    //检测碰撞
+    checkCollision: function(){
+      var centerY = this.kPosition + PIPE_KH / 2;
+
+       //划分四个区域
+      if(Bird.x < this.x){
+          if(Bird.y < centerY){
+          }
+      }
+    }
+};
+Stage.init();
+Bird.init();
+Stage.start();
+</script>
+</body>
+</html>
