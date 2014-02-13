@@ -65,7 +65,7 @@ var R = 14;
 
 //计算重力加速度
 //预期时间
-var expectT = 0.24;
+var expectT = 0.17;
 
 //预期位移
 var expectS = 20;
@@ -124,7 +124,7 @@ var Bird = {
             _this.x0 = _this.x;
             _this.y0 = _this.y;
             _this.t0 = + new Date;
-            _this.v0 = - 200;
+            _this.v0 = - 300;
             
         }
 
@@ -166,13 +166,10 @@ Pipe.prototype = {
     },
     step: function(){
        var t = (+ new Date - this.t0) / 1000;
-
        var s = PIPE_V * t;
-
        var x = this.x0 + s;
 
        this.x = x;
-
        this.drawPipe(x, this.y);
 
        if(this.checkCollision()){
