@@ -3,6 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>bird</title>
+  <style type="text/css">
+html, body{height: 100%;margin: 0;}
+  </style>
 </head>
 <body>
 <canvas id="ctx" width="600" height="400"></canvas>	
@@ -11,15 +14,16 @@
 var canvas = document.getElementById("ctx");
 var ctx = canvas.getContext("2d");
 
-var WIDTH = 600;
-var HEIGHT = 400;
+var WIDTH = document.body.offsetWidth;
+var HEIGHT = document.body.offsetHeight;
 
-ctx.width = WIDTH;
-ctx.height = HEIGHT;
+canvas.width = WIDTH;
+canvas.height = HEIGHT;
 
 var Stage = {
   init: function(){
-     this.Pipes = new Pipe();
+     Bird.init();
+     Pipes.init();
   },
   status: {
      playing: 0
@@ -29,8 +33,7 @@ var Stage = {
 
      this.clearStage();
      Bird.step();
-
-     this.Pipes.step();
+     Pipes.step();
 
      if(this.status.playing){
        setTimeout(function(){
@@ -46,6 +49,13 @@ var Stage = {
   start: function(){
       this.status.playing = 1;
       this.step();
+  },
+
+  lose: function(){
+      this.status.playing = 0;
+      this.clearStage();
+
+      ctx.fillText("Lose!", WIDTH / 2, HEIGHT / 2);
   }
 };
 
@@ -53,7 +63,7 @@ var R = 14;
 
 //计算重力加速度
 //预期时间
-var expectT = 0.34;
+var expectT = 0.24;
 
 //预期位移
 var expectS = 20;
@@ -108,11 +118,10 @@ var Bird = {
     eventBind: function(){
         var _this = this;
         document.body.onclick = function(){
-            console.log('sdf');
             _this.x0 = _this.x;
             _this.y0 = _this.y;
             _this.t0 = + new Date;
-            _this.v0 = - 160;
+            _this.v0 = - 200;
             
         };
     }
@@ -125,16 +134,16 @@ var PIPE_V = - 100;
 var PIPE_W = 20;
 
 //空隙高度
-var PIPE_KH = R * 2 + 30;
+var PIPE_KH = R * 2 + 80;
 var Pipe = function(startX, startY){
-  this.x0 = startX || WIDTH;
+  this.x0 = startX || WIDTH * Math.random();
   this.y0 = startY || 0;
 
   this.x = startX || WIDTH;
   this.y = startY || 0;
 
   //空隙的位置
-  this.kPosition = 20;
+  this.kPosition = (HEIGHT - 100) * Math.random() + 50;
 
   this.t0 = + new Date;
 };
@@ -159,21 +168,99 @@ Pipe.prototype = {
        this.x = x;
 
        this.drawPipe(x, this.y);
+
+       if(this.checkCollision()){
+         Stage.lose();
+       }
+
+       if(x < - PIPE_W){
+         Pipes.addPipe();
+       }
+    },
+
+    distance: function(p0, p1){
+      return Math.sqrt(Math.pow(p0[0] - p1[0], 2) + Math.pow(p0[1] - p1[1], 2));
     },
 
     //检测碰撞
     checkCollision: function(){
       var centerY = this.kPosition + PIPE_KH / 2;
+      var x = this.x;
 
-       //划分四个区域
-      if(Bird.x < this.x){
-          if(Bird.y < centerY){
+      //四个关键点
+      var keyPoints = [
+        [x, this.kPosition],
+        [x, this.kPosition + PIPE_KH],
+        [x + PIPE_W, this.kPosition],
+        [x + PIPE_W, this.kPosition + PIPE_KH]
+      ];
+
+      var birdX = Bird.x;
+      var birdY = Bird.y;
+
+      var birdPosition = [birdX, birdY];
+
+      //四个垂直扩展点
+      var derectPoints = [
+        [birdX, this.kPosition],
+        [birdX, this.kPosition + PIPE_KH],
+        [x, birdY],
+        [x + PIPE_W, birdY]
+      ];
+
+      for(var i = 0; i < derectPoints.length; i ++){
+        var point = derectPoints[i];
+
+        //x < px < x + p_w  && (y < k_p || y > k_p + p_h)
+        if(point[0] >= x && point[0] <= x + PIPE_W && (point[1] < this.kPosition || point[1] > this.kPosition + PIPE_KH)){
+          if(this.distance(birdPosition, point) <= R){
+            return true;
           }
+        }
       }
+
+      //检查四个关键点的距离是否越标
+      for(var i = 0; i < keyPoints.length; i ++){
+        var point = keyPoints[i];
+
+        if(this.distance(birdPosition, point) <= R){
+          return true;
+        }
+      }
+
+      return false;
     }
 };
+
+var PIPE_SPLIT_DIS = 160;
+//水管管理器
+var Pipes = {
+  init: function(){
+      //pipe池
+      this.pipes = [];
+
+      var startX = WIDTH + PIPE_SPLIT_DIS * 1;
+      var n = ~~ (WIDTH / PIPE_SPLIT_DIS + 1);
+
+      for(var i = 0; i < n; i ++){
+        var p = new Pipe(startX + i * PIPE_SPLIT_DIS);
+        this.pipes.push(p);
+      }
+  },
+
+  step: function(){
+     for(var i = 0; i < this.pipes.length; i ++){
+       this.pipes[i].step();
+     }
+  },
+
+  addPipe: function(){
+     this.pipes.shift();
+     this.pipes.push(new Pipe(this.pipes[this.pipes.length - 1].x + PIPE_SPLIT_DIS));
+  }
+};
+
 Stage.init();
-Bird.init();
 Stage.start();
 </script>
 </body>
