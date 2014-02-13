@@ -21,6 +21,16 @@ var HEIGHT = document.body.offsetHeight;
 canvas.width = WIDTH;
 canvas.height = HEIGHT;
 
+var requestAnimationFrame = window.requestAnimationFrame
+|| window.mozRequestAnimationFrame
+|| window.webkitRequestAnimationFrame
+|| window.msRequestAnimationFrame
+|| window.oRequestAnimationFrame
+|| function(callback) {
+  setTimeout(callback, 1000 / 60);
+};
+
+
 var Stage = {
   init: function(){
      Bird.init();
@@ -37,9 +47,9 @@ var Stage = {
      Pipes.step();
 
      if(this.status.playing){
-       setTimeout(function(){
+       requestAnimationFrame(function(){
            _this.step();
-       }, 0);
+       });
      }
   },
 
@@ -137,7 +147,7 @@ var Bird = {
 var PIPE_V = - 160;
 
 //PIPE宽度
-var PIPE_W = 20;
+var PIPE_W = 40;
 
 //空隙高度
 var PIPE_KH = R * 2 + 80;
