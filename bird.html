@@ -118,13 +118,17 @@ var Bird = {
 
     eventBind: function(){
         var _this = this;
-        document.body.onclick = function(){
+
+        function handler(){
             _this.x0 = _this.x;
             _this.y0 = _this.y;
             _this.t0 = + new Date;
             _this.v0 = - 200;
             
-        };
+        }
+
+        document.body.onclick = handler;
+        document.body.ontouchstart = handler;
     }
 };
 
