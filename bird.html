@@ -204,7 +204,7 @@ Pipe.prototype = {
        this.x = x;
        this.drawPipe(x, this.y);
 
-       if(this.checkCollision()){
+       if(this.x < Bird.x + R + PIPE_W + 4 && this.checkCollision()){
          Stage.lose();
          return;
        }
