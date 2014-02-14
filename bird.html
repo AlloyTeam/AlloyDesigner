@@ -37,6 +37,9 @@ var Stage = {
      SCORE = 0;
      Bird.init();
      Pipes.init();
+
+     ctx.font = "40px Arial";
+     ctx.fillText("点击开始", WIDTH * 0.3, HEIGHT / 2);
   },
   status: {
      playing: 0
@@ -291,7 +294,6 @@ var Pipes = {
 };
 
 Stage.init();
-Stage.start();
 </script>
 </body>
 </html>
