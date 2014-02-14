@@ -34,6 +34,7 @@ var requestAnimationFrame = window.requestAnimationFrame
 
 var Stage = {
   init: function(){
+     SCORE = 0;
      Bird.init();
      Pipes.init();
   },
@@ -69,6 +70,7 @@ var Stage = {
 
       ctx.font = "40px Arial";
       ctx.fillText("Lose! " + SCORE + "分", WIDTH * 0.3, HEIGHT / 2);
+      ctx.fillText("点击重来", WIDTH * 0.3, HEIGHT / 2 + 60);
   }
 };
 
@@ -76,10 +78,10 @@ var R = 14;
 
 //计算重力加速度
 //预期时间
-var expectT = 0.17;
+var expectT = 1;
 
 //预期位移
-var expectS = 20;
+var expectS = 500;
 var G = - (2 * expectS / (expectT * expectT));
 
 var Bird = {
@@ -103,12 +105,17 @@ var Bird = {
 
       this.y = y;
 
+      if(y > HEIGHT) {
+        Stage.lose();
+        return;
+      }
+
 
       this.drawBird(this.x0, y);
     },
 
     init: function(){
-        var x0 = 40;
+        var x0 = PIPE_SPLIT_DIS * 0.6;
         var y0 = ~~ (HEIGHT / 2);
 
         this.x0 = x0;
@@ -132,10 +139,15 @@ var Bird = {
         var _this = this;
 
         function handler(){
-            _this.x0 = _this.x;
-            _this.y0 = _this.y;
-            _this.t0 = + new Date;
-            _this.v0 = - 300;
+            if(Stage.status.playing){
+              _this.x0 = _this.x;
+              _this.y0 = _this.y;
+              _this.t0 = + new Date;
+              _this.v0 = - 400;
+            }else{
+              Stage.init();
+              Stage.start();
+            }
             
         }
 
