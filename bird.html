@@ -10,7 +10,6 @@ html, body{height: 100%;margin: 0;}
 </head>
 <body>
 <canvas id="ctx" width="600" height="400"></canvas>	
-
 <script type="text/javascript">
 var canvas = document.getElementById("ctx");
 var ctx = canvas.getContext("2d");
@@ -30,7 +29,6 @@ var requestAnimationFrame = window.requestAnimationFrame
 || function(callback) {
   setTimeout(callback, 1000 / 60);
 };
-
 
 var Stage = {
   init: function(){
@@ -71,14 +69,22 @@ var Stage = {
       this.status.playing = 0;
       this.clearStage();
 
+      var highScore = window.localStorage.getItem('highScore') || 0;
       ctx.font = "40px Arial";
       ctx.fillText("Lose! " + SCORE + "分", WIDTH * 0.3, HEIGHT / 2);
-      ctx.fillText("点击重来", WIDTH * 0.3, HEIGHT / 2 + 60);
+
+      if(SCORE > highScore){
+        ctx.fillText("新纪录", WIDTH * 0.3, HEIGHT / 2 + 60);
+        window.localStorage.setItem('highScore', SCORE);
+      }else{
+        ctx.fillText("最高分：" + highScore + "分", WIDTH * 0.3, HEIGHT / 2 + 60);
+      }
+
+      ctx.fillText("点击重来", WIDTH * 0.3, HEIGHT / 2 + 120);
   }
 };
 
 var R = 14;
-
 //计算重力加速度
 //预期时间
 var expectT = 1;
@@ -112,7 +118,6 @@ var Bird = {
         Stage.lose();
         return;
       }
-
 
       this.drawBird(this.x0, y);
     },
