@@ -6,6 +6,19 @@
 	<title>Flappy Egg</title>
   <style type="text/css">
 html, body{height: 100%;margin: 0;}
+@-webkit-keyframes lose{
+  0%{ -webkit-transform: translate(10px, 10px);}
+  10%{ -webkit-transform: translate(-3px, 3px);}
+  20%{ -webkit-transform: translate(2px, 0px);}
+  30%{ -webkit-transform: translate(10px, -4px);}
+  40%{ -webkit-transform: translate(0px, 8px);}
+  50%{ -webkit-transform: translate(-12px, 4px);}
+  60%{ -webkit-transform: translate(14px, 8px);}
+  100%{ -webkit-transform: translate(0px, 0px);}
+}
+.lose{
+  -webkit-animation: lose 0.2s ease-in;
+}
   </style>
 </head>
 <body>
@@ -50,7 +63,7 @@ var Stage = {
      Bird.step();
      Pipes.step();
 
-     if(this.status.playing){
+     if(this.status.playing == 1){
        requestAnimationFrame(function(){
            _this.step();
        });
@@ -67,21 +80,30 @@ var Stage = {
   },
 
   lose: function(){
-      this.status.playing = 0;
-      this.clearStage();
+      canvas.className += "lose";
+      this.status.playing = 2;
 
-      var highScore = window.localStorage.getItem('highScore') || 0;
-      ctx.font = "40px Arial";
-      ctx.fillText("Lose! " + SCORE + "分", WIDTH * 0.3, HEIGHT / 2);
+      var _this = this;
 
-      if(SCORE > highScore){
-        ctx.fillText("新纪录", WIDTH * 0.3, HEIGHT / 2 + 60);
-        window.localStorage.setItem('highScore', SCORE);
-      }else{
-        ctx.fillText("最高分：" + highScore + "分", WIDTH * 0.3, HEIGHT / 2 + 60);
-      }
+      setTimeout(function(){
+          canvas.className = "";
+        _this.clearStage();
 
-      ctx.fillText("点击重来", WIDTH * 0.3, HEIGHT / 2 + 120);
+        _this.status.playing = 0;
+
+        var highScore = window.localStorage.getItem('highScore') || 0;
+        ctx.font = "40px Arial";
+        ctx.fillText("Lose! " + SCORE + "分", WIDTH * 0.3, HEIGHT / 2);
+
+        if(SCORE > highScore){
+          ctx.fillText("新纪录", WIDTH * 0.3, HEIGHT / 2 + 60);
+          window.localStorage.setItem('highScore', SCORE);
+        }else{
+          ctx.fillText("最高分：" + highScore + "分", WIDTH * 0.3, HEIGHT / 2 + 60);
+        }
+
+        ctx.fillText("点击重来", WIDTH * 0.3, HEIGHT / 2 + 120);
+      }, 300);
   }
 };
 
@@ -148,12 +170,12 @@ var Bird = {
         var _this = this;
 
         function handler(){
-            if(Stage.status.playing){
+            if(Stage.status.playing == 1){
               _this.x0 = _this.x;
               _this.y0 = _this.y;
               _this.t0 = + new Date;
               _this.v0 = - 400;
-            }else{
+            }else if(Stage.status.playing == 0){
               Stage.init();
               Stage.start();
             }
@@ -288,7 +310,8 @@ var Pipes = {
   step: function(){
      var pipes = this.pipes.concat([]);
      for(var i = 0; i < pipes.length; i ++){
-       Stage.status.playing && pipes[i].step();
+       //Stage.status.playing && pipes[i].step();
+       pipes[i].step();
      }
   },
 
