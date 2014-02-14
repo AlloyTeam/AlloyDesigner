@@ -156,6 +156,7 @@ var Bird = {
 
         document.body.onclick = handler;
         document.body.ontouchstart = handler;
+        document.body.ontouchmove = function(e){ e.preventDefault();};
     }
 };
 
