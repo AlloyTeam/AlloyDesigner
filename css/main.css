@@ -127,11 +127,14 @@ h2{
 .footer{
     height: 80px;
     background: #464e61;
-    line-height: 80px;
+    line-height: 27px;
+    overflow: hidden;
 }
 .footer .copyright{
     text-align:center;
     color: #fff;
+    margin-top: 12px;
+    overflow: hidden;
 }
 .footer .copyright a{
     color: inherit;
