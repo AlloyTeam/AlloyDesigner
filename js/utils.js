@@ -210,7 +210,6 @@
 
       };
 
-
    var utils = {
         request: initRequest,
         getTmpl: getTmpl,

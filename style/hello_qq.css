@@ -1,0 +1,89 @@
+body{
+	font-family:'Segoe UI Light','Segoe UI','Microsoft Jhenghei','微软雅黑',sans-serif;
+	font-size: 20px;
+	color:#333333;
+	margin:0;
+	padding:0;
+}
+h2{
+    font-size: 18px;
+	text-align:center;
+    font-weight: 100;
+}
+.title{
+	font-size: 50px;
+	text-align:center;
+	color:#666666;
+	font-weight:normal;
+	margin:50px 0 0 0;
+	
+	
+}
+.hello{
+	margin:100px auto 0 auto;
+	padding:50px 0 0 0;
+	height:160px;
+	background:rgb(221, 245, 255);
+	overflow:hidden;
+}
+.titleBoard{
+	display:block;
+	position:relative;
+	top:-135px;	
+	margin:0px auto;
+}
+
+.helloQQ {
+	display:block;
+	position:relative;
+	left:50px;
+	margin:0px auto;
+	padding:0 0 50px 0;
+
+	animation-name: helloQQ;
+	animation-duration: 3s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+}
+
+@keyframes helloQQ{
+	from {
+		transform:rotate(-30deg)
+	}
+	50% {
+		transform:rotate(30deg)
+	}
+	to {
+		transform:rotate(-30deg)
+	}
+}
+
+
+.showText{
+	display:block;
+	text-align:center;
+	padding:0 0 50px;
+	margin:auto;
+	background:rgb(221, 245, 255);
+}
+
+
+.copyright{
+	margin:50px 0 0 0;
+	height:50px;
+	color:#999999;
+	font-family:Tahoma;
+	font-size: 12px;
+	text-align:center;
+}
+
+.copyright a{
+	color:#999999;
+	text-decoration:none;
+}
+
+.copyright a:hover,
+.copyright a:focus{
+	outline:none;
+	text-decoration:underline;
+}
