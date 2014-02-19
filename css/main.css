@@ -49,10 +49,10 @@ h2{
     background: rgb(111, 167, 208);
 }
 .alloyIntro{
-    height: 400px;
+    height: 349px;
     text-align:center;
     vertical-align: middle;
-    line-height: 400px;
+    line-height: 331px;
     background: rgb(172, 173, 173);
 }
 .alloyIntro img{
@@ -70,8 +70,8 @@ h2{
 .banner .wrapper{
     /* width: 511px; */
     margin: 0 auto;
-    border-bottom: 2px solid #D6D5D5;
-    border-top: 2px solid #FFFDFD;
+    border-bottom: 1px solid #D6D5D5;
+    border-top: 1px solid #FFFDFD;
     overflow: auto;
     /* height: 427px; */
     
@@ -90,10 +90,10 @@ h2{
 .banner li img{
     /* float: left; */
     margin: 0;
-    width: 224px;
-    height: auto;
+    width: auto;
+    height: 75px;
     /* max-height: 423px; */
-    margin-top: -16px;
+    margin-top: 12px;
 }
 .intro{
     color: #525463;
@@ -104,7 +104,7 @@ h2{
     padding-top: 10px;
     margin-bottom: 42px;
     /* width: inherit; */
-    margin-top: -63px;
+    margin-top: -16px;
 }
 .intro h2{
     font-size: inherit;
@@ -112,7 +112,7 @@ h2{
     font-weight: 100;
 }
 .intro p{
-    font-size: 18px;
+    font-size: 14px;
     /* width: 100%; */
     word-break: break-all;
     color: #9B9B9B;
