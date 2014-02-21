@@ -225,6 +225,15 @@ p .alloydesigner{
 </div>
 
 <script type="text/javascript">
+var img = document.getElementsByTagName("img");
+for(var i = 0; i < img.length; i ++){
+  var item = img[i];
+  item.onclick = function(){
+    window.open(this.src, "_blank");
+  };
+}
+</script>
+<script type="text/javascript">
 
 	  var _gaq = _gaq || [];
 	  _gaq.push(['_setAccount', 'UA-23019343-9']);
