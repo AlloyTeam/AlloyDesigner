@@ -210,13 +210,41 @@
 
       };
 
+      var addClass = function(node, className){
+
+          var classNameReg = new RegExp('(\\s+|^)' + className + '(\\s+|$)');
+
+          console.log(classNameReg);
+
+          if(node.className){
+              if(classNameReg.test(node.className)){
+              }else{
+                  node.className += " " + className;
+              }
+          }else{
+              node.className = "";
+              node.className += " " + className;
+          }
+      };
+
+      var removeClass = function(node, className){
+          var classNameReg = new RegExp('(\\s+|^)' + className + '(\\s+|$)');
+          if(node.className){
+              node.className = node.className.replace(classNameReg, "");
+          }
+      };
+
+
+
    var utils = {
         request: initRequest,
         getTmpl: getTmpl,
         renderTmpl: renderTmpl,
         addEvent: addEvent,
         animate: animate,
-        css: css
+        css: css,
+        addClass: addClass,
+        removeClass: removeClass
     };
 
     window.Utils = utils;

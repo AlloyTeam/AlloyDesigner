@@ -1,10 +1,10 @@
 <!DOCTYPE HTML>
 <html lang="zh">
 <head>
-	<meta charset="UTF-8">
-  <link media="all" rel="stylesheet" href="css/main.css" type="text/css" />
-	<title>AlloyDesigner——For Fast Web Development</title>
-  <style type="text/css">
+<meta charset="UTF-8">
+<link media="all" rel="stylesheet" href="css/main.css" type="text/css" />
+<title>AlloyDesigner——For Fast Web Development</title>
+<style type="text/css">
 h2, h3{
   font-family: "Helvetica Neue",Helvetica,STHeiTi,"Microsoft YaHei",sans-serif;
   font-weight: 500;
@@ -71,7 +71,7 @@ p .alloydesigner{
   padding: 5px;
   border-radius: 4px;
 }
-  </style>
+</style>
 </head>
 <body>
 <div class="header">
@@ -84,9 +84,9 @@ p .alloydesigner{
   </div>
 </div>	
 <div class="main">
-  <div class="pageIndex">
-   <script type="text/plain" id="pageIndex">
-    <?
+  <div class="pageIndex pageIndexWorkflow" id="pageIndexEl">
+    <script type="text/plain" id="pageIndex">
+<?
       var mainContent = document.getElementById('mainContent');
 
       var mainContentChilren = mainContent.childNodes;
@@ -105,147 +105,147 @@ p .alloydesigner{
         ?>
           <a href="#<?=id?>" class="indexItem index_<?=tagName?>"><?=html?></a>
         <?
-          
+
         }
       }
       ?>
 
-   </script>
+    </script>
   </div>
 
   <div class="mainContent" id="mainContent">
-      <h2><span class='alloydesigner'>AlloyDesigner</span>使用参考</h2>
-      <img src="docimg/ad.gif" style="max-width: 800px;" />
-      <h2>怎么引入<span class='alloydesigner'>AlloyDesigner</span>?</h2>
-      <h3>Chrome扩展插件的方式使用<span class='alloydesigner'>AlloyDesigner</span>(Chrome)</h3>
-      <p><span class='num'>1.</span><a href='https://chrome.google.com/webstore/detail/alloydesigner/ojooeaohlmgpcjajikhmibcnbebfenid?hl=zh-CN&authuser=1' target='_blank' class='getPlugin'>点击此处</a> 在Chrome Web Store上安装<span class='alloydesigner'>AlloyDesigner</span>扩展插件
-      <br />
-      <img src="docimg/installfromstore.png" />
-      <br />
-      <span class='num'>2.</span>点击免费，然后添加，就会添加到Chrome的地址栏的右边
-      <br />
+    <h2><span class='alloydesigner'>AlloyDesigner</span>使用参考</h2>
+    <img src="docimg/ad.gif" style="max-width: 800px;" />
+    <h2>怎么引入<span class='alloydesigner'>AlloyDesigner</span>?</h2>
+    <h3>Chrome扩展插件的方式使用<span class='alloydesigner'>AlloyDesigner</span>(Chrome)</h3>
+    <p><span class='num'>1.</span><a href='https://chrome.google.com/webstore/detail/alloydesigner/ojooeaohlmgpcjajikhmibcnbebfenid?hl=zh-CN&authuser=1' target='_blank' class='getPlugin'>点击此处</a> 在Chrome Web Store上安装<span class='alloydesigner'>AlloyDesigner</span>扩展插件
+    <br />
+    <img src="docimg/installfromstore.png" />
+    <br />
+    <span class='num'>2.</span>点击免费，然后添加，就会添加到Chrome的地址栏的右边
+    <br />
 
-      <img src="docimg/installed.png" />
+    <img src="docimg/installed.png" />
 
-      <span class='num'>3.</span>打开需要开发或者测试的页面，然后点击<span class='alloydesigner'>AlloyDesigner</span>的图标，会在页面下出现<span class='alloydesigner'>AlloyDesigner</span>的工具条，然后打开右边的加载视觉稿按钮，选择要加载的视觉稿
+    <span class='num'>3.</span>打开需要开发或者测试的页面，然后点击<span class='alloydesigner'>AlloyDesigner</span>的图标，会在页面下出现<span class='alloydesigner'>AlloyDesigner</span>的工具条，然后打开右边的加载视觉稿按钮，选择要加载的视觉稿
 
-      <img src="docimg/toolbar.png" />
-      至此视觉稿就被加载进来了，重新刷新页面也不会丢失视觉稿
-      </p>
+    <img src="docimg/toolbar.png" />
+    至此视觉稿就被加载进来了，重新刷新页面也不会丢失视觉稿
+    </p>
 
-      <h3>手动嵌入代码的方式使用<span class='alloydesigner'>AlloyDesigner</span>(IE7 +)</h3>
-      <p><span class='num'>1.</span>在官网上下载最新的<span class='alloydesigner'>AlloyDesigner</span>代码版alloydesigner.js
-        <br />
-         <span class='num'>2.</span>在要测试或者开发项目的页面中底部把<span class='alloydesigner'>AlloyDesigner</span>引进来
+    <h3>手动嵌入代码的方式使用<span class='alloydesigner'>AlloyDesigner</span>(IE7 +)</h3>
+    <p><span class='num'>1.</span>在官网上下载最新的<span class='alloydesigner'>AlloyDesigner</span>代码版alloydesigner.js
+    <br />
+    <span class='num'>2.</span>在要测试或者开发项目的页面中底部把<span class='alloydesigner'>AlloyDesigner</span>引进来
 
-         <pre>
+    <pre>
   &lt;script type="text/javascript" src="alloydesigner.js">&lt;/script></pre>
 
-         <span class='num'>3.</span>将视觉文件保存成home.jpg或者home.png，放在与页面所在同目录下
-        <img src="docimg/file.png" style="width:268px;" />
+    <span class='num'>3.</span>将视觉文件保存成home.jpg或者home.png，放在与页面所在同目录下
+    <img src="docimg/file.png" style="width:268px;" />
 
-        或者视觉稿为其它文件，手动设置视觉文件路径
-         <pre>
+    或者视觉稿为其它文件，手动设置视觉文件路径
+    <pre>
   &lt;script type="text/javascript">
     $AD.set("design/design.jpg");
   &lt;/script></pre>
 
-        <span class='num'>4.</span>刷新页面，即可以看到视觉文件被引入进来了
-      </p>
+    <span class='num'>4.</span>刷新页面，即可以看到视觉文件被引入进来了
+    </p>
 
-      <h2>怎么使用<span class='alloydesigner'>AlloyDesigner</span>?</h2>
-      <h3>用于调整页面与测试</h3>
-      <p>
-      <span class='num'>1.</span>使用鼠标移动视觉稿，使视觉稿和页面近似重合<br />
-      <img src="docimg/alterpic.png" />
-      <span class='num'>2.</span>使用方向键微调视觉稿，使视觉稿和页面的参考点完全重合，没有重影<br />
-      <span class='num'>3.</span>这时候页面不规范的部分就会有重影。
-      <img src="docimg/alterpic2.png" />
-      <span class='num'>4.</span>点击固定按键或按Alt+F键，固定视觉稿
-      <img src="docimg/fix.png" />
-      固定后仍然可以使用Ctrl + 方向键微调视觉视觉稿的位置<br />
-      <span class='num'>5.</span>在需要调整的地方，点击右键审查元素，审查元素
-      <img src="docimg/lookup.png" />
-      <span class='num'>6.</span>对样式进行调整，直到重合
-      <img src="docimg/altercss.png" />
-      <span class='num'>7.</span>记录样式修改。将修改的样式手动写在文件中，或者使用Chrome的Workspace功能自动更改。(查看怎么配置Workspace)
-      <img src="docimg/manual.png" style="width: 395px;" />或
-      <img src="docimg/workspace.png" />
-      </p>
+    <h2>怎么使用<span class='alloydesigner'>AlloyDesigner</span>?</h2>
+    <h3>用于调整页面与测试</h3>
+    <p>
+    <span class='num'>1.</span>使用鼠标移动视觉稿，使视觉稿和页面近似重合<br />
+    <img src="docimg/alterpic.png" />
+    <span class='num'>2.</span>使用方向键微调视觉稿，使视觉稿和页面的参考点完全重合，没有重影<br />
+    <span class='num'>3.</span>这时候页面不规范的部分就会有重影。
+    <img src="docimg/alterpic2.png" />
+    <span class='num'>4.</span>点击固定按键或按Alt+F键，固定视觉稿
+    <img src="docimg/fix.png" />
+    固定后仍然可以使用Ctrl + 方向键微调视觉视觉稿的位置<br />
+    <span class='num'>5.</span>在需要调整的地方，点击右键审查元素，审查元素
+    <img src="docimg/lookup.png" />
+    <span class='num'>6.</span>对样式进行调整，直到重合
+    <img src="docimg/altercss.png" />
+    <span class='num'>7.</span>记录样式修改。将修改的样式手动写在文件中，或者使用Chrome的Workspace功能自动更改。(查看怎么配置Workspace)
+    <img src="docimg/manual.png" style="width: 395px;" />或
+    <img src="docimg/workspace.png" />
+    </p>
 
-      <h3>直接用于开发页面(For Chrome)</h3>
-      <p>
-      <span class='alloydesigner'>AlloyDesigner</span>可以直接用于开发页面，这种开发更加便捷与直接，较传统的开发模式，真正具有即见即所得的能力。<br />
-      此时Chrome F12工具充当编辑器，<span class='alloydesigner'>AlloyDesigner</span>提供制作蓝本与其他辅助工具支持。
-      </p>
+    <h3>直接用于开发页面(For Chrome)</h3>
+    <p>
+    <span class='alloydesigner'>AlloyDesigner</span>可以直接用于开发页面，这种开发更加便捷与直接，较传统的开发模式，真正具有即见即所得的能力。<br />
+    此时Chrome F12工具充当编辑器，<span class='alloydesigner'>AlloyDesigner</span>提供制作蓝本与其他辅助工具支持。
+    </p>
 
-      <p>
-      <span class='num'>1.</span>配置Workspace功能，自动保存F12中的修改。这样，浏览器就充当了部分编辑器的功能<br />
-      <span class='num'>2.</span>加载视觉稿，将视觉稿固定在页面最上面合适的位置<br />
-      <span class='num'>3.</span>点击固定按键固定（Alt + F)，视觉稿做为页面的背景，然后可以适当调整透明度（使用Alt + 上/下键）<br />
-      <span class='num'>4.</span>使用测试工具对页面进行测绘，然后将样式通过F12写入文件中去<br />
-      <span class='num'>5.</span>使用取色工具，取视觉稿颜色<br />
-      <span class='num'>6.</span>完成开发
-      </p>
+    <p>
+    <span class='num'>1.</span>配置Workspace功能，自动保存F12中的修改。这样，浏览器就充当了部分编辑器的功能<br />
+    <span class='num'>2.</span>加载视觉稿，将视觉稿固定在页面最上面合适的位置<br />
+    <span class='num'>3.</span>点击固定按键固定（Alt + F)，视觉稿做为页面的背景，然后可以适当调整透明度（使用Alt + 上/下键）<br />
+    <span class='num'>4.</span>使用测试工具对页面进行测绘，然后将样式通过F12写入文件中去<br />
+    <span class='num'>5.</span>使用取色工具，取视觉稿颜色<br />
+    <span class='num'>6.</span>完成开发
+    </p>
 
-      <h3>测试工具的使用</h3>
-      <p>测试工具可以测量每个div的像素宽高、距离等<br />
-        使用快捷键Alt + D进行测量模式
-      <img src="docimg/celiang.png" alt="" />
-      </p>
+    <h3>测试工具的使用</h3>
+    <p>测试工具可以测量每个div的像素宽高、距离等<br />
+    使用快捷键Alt + D进行测量模式
+    <img src="docimg/celiang.png" alt="" />
+    </p>
 
-      <h3>不透明度调节工具的使用</h3>
-      <p>
-      不透明度调节主要调节视觉稿与body的不透明度，达到一个合适的不透明度，更易于开发<br />
-      在视觉稿固定前，视觉图片处于body之上，这时调节的是视觉图片的不透明度，固定之后，文档处于视觉图片之上，这时调节的是body的不透明度。
-      <img src="docimg/opacity.png" alt="" />
-      </p>
+    <h3>不透明度调节工具的使用</h3>
+    <p>
+    不透明度调节主要调节视觉稿与body的不透明度，达到一个合适的不透明度，更易于开发<br />
+    在视觉稿固定前，视觉图片处于body之上，这时调节的是视觉图片的不透明度，固定之后，文档处于视觉图片之上，这时调节的是body的不透明度。
+    <img src="docimg/opacity.png" alt="" />
+    </p>
 
-      <h3>取色工具</h3>
-      <p>
-      取色工具用于取视觉图片上的颜色<br />
-      点击取色工具(Alt + X)按钮进入取色模式, 在视觉稿要取色的位置上点击进行取色，然后在右下角面板中的颜色值复制即可
-      </p>
+    <h3>取色工具</h3>
+    <p>
+    取色工具用于取视觉图片上的颜色<br />
+    点击取色工具(Alt + X)按钮进入取色模式, 在视觉稿要取色的位置上点击进行取色，然后在右下角面板中的颜色值复制即可
+    </p>
 
-      <h3>CSS助手</h3>
-      <p>css助手用于快速查看应用于元素上的样式<br />
-      点击css助手按钮(Alt + C)进入CSS助手模式，鼠标在元素上停留即可看到应用于元素上的样式规则
-      <img src="docimg/css.png" alt="" />
-      </p>
+    <h3>CSS助手</h3>
+    <p>css助手用于快速查看应用于元素上的样式<br />
+    点击css助手按钮(Alt + C)进入CSS助手模式，鼠标在元素上停留即可看到应用于元素上的样式规则
+    <img src="docimg/css.png" alt="" />
+    </p>
 
-      <h2>配置Chrome Workspace功能</h2>
-      <p>
-      Chrome Workspace功能是将在Chrome开发者工具（F12）中对文档的修改直接应用于对应文件中。<br />
-      由于Chrome并不知道当然文档对应用的文件为哪个，所以需要配置Workspace的映射关系来告诉Chrome对哪个文件做修改<br />
-      <br />
+    <h2>配置Chrome Workspace功能</h2>
+    <p>
+    Chrome Workspace功能是将在Chrome开发者工具（F12）中对文档的修改直接应用于对应文件中。<br />
+    由于Chrome并不知道当然文档对应用的文件为哪个，所以需要配置Workspace的映射关系来告诉Chrome对哪个文件做修改<br />
+    <br />
 
-      使用Workspace条件：
-      </p>
-      <ul>
-        <li>Chrome V31+(正式版)</li>
-        <li>本地服务器开发</li>
-      </ul>
+    使用Workspace条件：
+    </p>
+    <ul>
+      <li>Chrome V31+(正式版)</li>
+      <li>本地服务器开发</li>
+    </ul>
 
-      <p>
-        <span class='num'>1.</span>点击F12工具的设置按钮
-      <img src="docimg/w_1.png" alt="" />
-      <span class='num'>2.</span>点击左侧的workspace
-      <img src="docimg/w_2.png" alt="" />
-      <span class='num'>3.</span>点击Add folder
-      <img src="docimg/w_3.png" alt="" />
-      <span class='num'>4.</span>选择服务器所在的根目录，之后确定会chrome会在上面做出一个提示，点击允许
-      <img src="docimg/w_4.png" alt="" />
-      <span class='num'>5.</span>双击下图所示的地方，配置映射关系
-      <img src="docimg/w_5.png" alt="" />
-      <span class='num'>6.</span>填写映射关系，视具体情况填写，<span class='warning'>注意</span>右边的/一定要填写（关键性步骤）
-      <img src="docimg/w_6.png" alt="" />
-      然后点击空白处，完成填写<br />
-      <span class='num'>7.</span>然后回到一个页面中去，试着去更改一个样式数值，验证是否生效
-      <img src="docimg/w_7.png" alt="" />
-      <img src="docimg/w_8.png" alt="" />
+    <p>
+    <span class='num'>1.</span>点击F12工具的设置按钮
+    <img src="docimg/w_1.png" alt="" />
+    <span class='num'>2.</span>点击左侧的workspace
+    <img src="docimg/w_2.png" alt="" />
+    <span class='num'>3.</span>点击Add folder
+    <img src="docimg/w_3.png" alt="" />
+    <span class='num'>4.</span>选择服务器所在的根目录，之后确定会chrome会在上面做出一个提示，点击允许
+    <img src="docimg/w_4.png" alt="" />
+    <span class='num'>5.</span>双击下图所示的地方，配置映射关系
+    <img src="docimg/w_5.png" alt="" />
+    <span class='num'>6.</span>填写映射关系，视具体情况填写，<span class='warning'>注意</span>右边的/一定要填写（关键性步骤）
+    <img src="docimg/w_6.png" alt="" />
+    然后点击空白处，完成填写<br />
+    <span class='num'>7.</span>然后回到一个页面中去，试着去更改一个样式数值，验证是否生效
+    <img src="docimg/w_7.png" alt="" />
+    <img src="docimg/w_8.png" alt="" />
 
-      <span class='warning'>注意</span>Workspace只对外部引入的CSS样式有效！
-      </p>
+    <span class='warning'>注意</span>Workspace只对外部引入的CSS样式有效！
+    </p>
 
   </div>
 </div>
@@ -268,13 +268,13 @@ for(var i = 0; i < img.length; i ++){
 <!-- JiaThis Button BEGIN -->
 <script type="text/javascript" >
 var jiathis_config={
-	url:"http://alloyteam.github.io/AlloyDesigner/",
-	summary:"AlloyDesigner是来自腾讯AlloyTeam的前端开发效率工具，旨在提高前端开发质量与效率，使用它之后，可以改变以往的开发模式",
-	title:"AlloyDesigner——web前端开发效率工具 #AlloyDesigner#",
-  pic: "http://alloyteam.github.io/AlloyDesigner/images/intro1.png",
-	showClose:true,
-	shortUrl:false,
-	hideMore:false
+url:"http://alloyteam.github.io/AlloyDesigner/",
+    summary:"AlloyDesigner是来自腾讯AlloyTeam的前端开发效率工具，旨在提高前端开发质量与效率，使用它之后，可以改变以往的开发模式",
+    title:"AlloyDesigner——web前端开发效率工具 #AlloyDesigner#",
+    pic: "http://alloyteam.github.io/AlloyDesigner/images/intro1.png",
+    showClose:true,
+    shortUrl:false,
+    hideMore:false
 }
 </script>
 <script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?btn=r.gif&move=1" charset="utf-8"></script>
@@ -282,20 +282,37 @@ var jiathis_config={
 
 <script type="text/javascript">
 Utils.renderTmpl('pageIndex', {});
+
+var pageIndexEl = document.getElementById('pageIndexEl');
+var offsetHeight = pageIndexEl.offsetTop;
+
+function setIndexPostion(){
+  var offsetTop = window.pageYOffset;
+  if(offsetTop < offsetHeight){
+    Utils.addClass(pageIndexEl, "pageIndexWorkflow");
+    console.log('sdf');
+  }else{
+    Utils.removeClass(pageIndexEl, "pageIndexWorkflow");
+    console.log('a');
+  }
+}
+
+window.addEventListener('scroll', setIndexPostion);
+
 </script>
 <!-- JiaThis Button END -->
 
 <script type="text/javascript">
 
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-23019343-9']);
-	  _gaq.push(['_trackPageview']);
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-23019343-9']);
+_gaq.push(['_trackPageview']);
 
-	  (function() {
-		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
+(function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
 
 </script>
 

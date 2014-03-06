@@ -77,9 +77,14 @@ h2{
     box-shadow: 0 0 2px 3px #E4E4E4;
     border-radius: 2px;
     position: fixed;
-    top: 120px;
+    top: 0;
     left: 50%;
     margin-left: -490px;
+}
+.main .pageIndexWorkflow{
+    position: absolute;
+    
+    top: 120px;
 }
 .main .pageIndex .indexItem{
     display: block;
@@ -106,7 +111,7 @@ h2{
     margin: 0 auto;
     padding: 0;
     width: 1000px;
-    overflow: auto;
+    overflow: hidden;
 }
 .banner .wrapper{
     /* width: 511px; */
