@@ -26,7 +26,16 @@ if(! ('getContext' in document.createElement('canvas'))) window.location = 'hell
     <script type="text/plain" id="list">
     <? for(var i = 0; i < list.length; i ++){ 
         var className = list[i].className || "";
+        if(i == 3){
     ?>
+     <li class="introFont">
+<h2>AlloyDesigner介绍</h2>
+
+<p>
+AlloyDesigner 重新定义了Web页面构建的模式，页面构建过程中，AlloyDesigner直接嵌入你的Web页面中运行，帮助你精准、高效的构建Web页面的UI！AlloyDesigner 是用 HTML5 开发的、直接嵌入在Web页面中运行的可视化Web构建工具
+</p>
+     </li>
+     <? } ?>
      <li style="" class="<?=className?>">
         <div class="wrapper">
           <img src="images/eg<?=i?>.png" alt="" class="" />

@@ -173,6 +173,20 @@ h2{
 .intro p.point{
     text-align: center;
 }
+.banner .introFont{
+    width: 100%;
+    
+    height: 130px;
+    border-top: 1px solid #FFFDFD;
+    border-bottom: 1px solid #D6D5D5;
+    padding: 7px 24px;
+    /* padding-right: 19px; */
+}
+.banner .introFont h2{
+    font-size: 16px;
+    
+    font-weight: 100;
+}
 .banner .feture img{
     float: left;
     
