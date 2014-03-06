@@ -15,7 +15,7 @@ h2{
     width: 100%;
 }
 .header .doc{
-    position: fixed;
+    /* position: fixed; */
 }
 .logoWrapper{
     width: 1003px;
