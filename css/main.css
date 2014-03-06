@@ -35,18 +35,23 @@ h2{
     text-align: right;
     padding-top: 32px;
 }
+.nav a{
+    text-decoration: none;
+ 
+}
 .nav li{
-    display: inline-block;
-    padding: 10px;
+    display: inline;
+    /* padding: 10px; */
     font-size: 18px;
     color: rgb(255, 255, 255);
-    background: rgb(125, 118, 135);
+    /* background: rgb(125, 118, 135); */
     border-radius: 4px;
     margin-right: 19px;
     cursor: pointer;
 }
 .nav li:hover{
-    background: rgb(111, 167, 208);
+    /* background: rgb(111, 167, 208); */
+    color: rgb(111, 167, 208);
 }
 .alloyIntro{
     height: 349px;
@@ -80,13 +85,18 @@ h2{
     text-align: center;
 }
 .banner li{
-    width: 50%;
+    width: 33%;
     /* height: 430px; */
     padding: 0;
     display: block;
     background: url(img/bg.jpg);
     float: left;
 }
+.banner .feture{
+    width: 50%;
+    
+}
+
 .banner li img{
     /* float: left; */
     margin: 0;
@@ -124,6 +134,12 @@ h2{
 }
 .intro p.point{
     text-align: center;
+}
+.banner .feture img{
+    float: left;
+    
+    margin-left: 47px;
+    margin-right: 35px;
 }
 .footer{
     height: 80px;
