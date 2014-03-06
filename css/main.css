@@ -95,6 +95,8 @@ h2{
 .banner .feture{
     width: 50%;
     
+    /* height: 122px; */
+    /* padding-bottom: 10px; */
 }
 
 .banner li img{
@@ -140,6 +142,18 @@ h2{
     
     margin-left: 47px;
     margin-right: 35px;
+}
+.banner .feture .intro{
+    text-align: left;
+    
+}
+.banner .feture .wrapper{
+    height: 141px;
+    
+    padding-top: 35px;
+}
+.banner .feture h2{
+    font-size: 16px;
 }
 .footer{
     height: 80px;
