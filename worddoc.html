@@ -25,8 +25,9 @@ img{
 }
 .mainContent{
   margin: 0 auto;
-  padding-left: 30px;
-  width: 1000px;
+  padding-left: 290px;
+  width: 680px;
+  margin-top: 200px;
 }
 .num{
   color: rgb(13, 120, 186);
@@ -74,15 +75,45 @@ p .alloydesigner{
 </head>
 <body>
 <div class="header">
-  <div class="logo">
+
+  <div class="logo doc">
     <div class="logoWrapper">
       <a href="./" class='homeLink'></a>
-      <ul class="nav"><li>文档教程</li><li>视频教程</li></ul>
+      <ul class="nav"><a href="./"><li>首页</li></a><a href="worddoc.html"><li>文档教程</li></a><li onclick="alert('近期推出，敬请期待！');">视频教程</li></ul>
     </div>
   </div>
 </div>	
 <div class="main">
-  <div class="mainContent">
+  <div class="pageIndex">
+   <script type="text/plain" id="pageIndex">
+    <?
+      var mainContent = document.getElementById('mainContent');
+
+      var mainContentChilren = mainContent.childNodes;
+
+      var hResult = [];
+
+      for(var i = 0; i < mainContentChilren.length; i ++){
+        var item = mainContentChilren[i];
+
+        if(item.nodeType == 1 && item.tagName && (item.tagName.toLowerCase() == "h2" || item.tagName.toLowerCase() == "h3")){
+          var tagName = item.tagName;
+          var html = item.innerHTML;
+          var id = "h_" + Math.round(Math.random() * 10000);
+
+          item.id = id;
+        ?>
+          <a href="#<?=id?>" class="indexItem index_<?=tagName?>"><?=html?></a>
+        <?
+          
+        }
+      }
+      ?>
+
+   </script>
+  </div>
+
+  <div class="mainContent" id="mainContent">
       <h2><span class='alloydesigner'>AlloyDesigner</span>使用参考</h2>
       <img src="docimg/ad.gif" style="max-width: 800px;" />
       <h2>怎么引入<span class='alloydesigner'>AlloyDesigner</span>?</h2>
@@ -247,6 +278,11 @@ var jiathis_config={
 }
 </script>
 <script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?btn=r.gif&move=1" charset="utf-8"></script>
+<script src="js/utils.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+Utils.renderTmpl('pageIndex', {});
+</script>
 <!-- JiaThis Button END -->
 
 <script type="text/javascript">

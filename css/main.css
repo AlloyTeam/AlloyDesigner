@@ -12,6 +12,10 @@ h2{
     height: 118px;
     background: #464e61;
     border-bottom: 1px solid #c4c4c4;
+    width: 100%;
+}
+.header .doc{
+    position: fixed;
 }
 .logoWrapper{
     width: 1003px;
@@ -65,6 +69,38 @@ h2{
 }
 .main{
     background: url(img/bg.jpg);
+}
+.main .pageIndex{
+    width: 259px;
+    
+    background: #F7FBFF;
+    box-shadow: 0 0 2px 3px #E4E4E4;
+    border-radius: 2px;
+    position: fixed;
+    top: 120px;
+    left: 50%;
+    margin-left: -490px;
+}
+.main .pageIndex .indexItem{
+    display: block;
+    text-decoration: none;
+    color: #716b7a;
+    /* height: 36px; */
+    padding-left: 17px;
+    line-height: 17px;
+    padding-right: 25px;
+    font-size: 12px;
+    /* padding: 6px; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    word-break: break-all;
+    font-weight: bold;
+}
+.main .pageIndex .index_H3{
+    padding-left: 37px;
+    
+    color: rgb(170, 170, 170);
+    font-weight: normal;
 }
 .banner{
     margin: 0 auto;
