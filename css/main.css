@@ -7,9 +7,10 @@ html, body{
 }
 h2{
   font-family: "Helvetica Neue",Helvetica,STHeiTi,"Microsoft YaHei",sans-serif;
+  /* margin-top: 110px; */
 }
 .header .logo{
-    height: 118px;
+    height: 89px;
     background: #464e61;
     border-bottom: 1px solid #c4c4c4;
     width: 100%;
@@ -20,14 +21,15 @@ h2{
 .logoWrapper{
     width: 1003px;
     margin: 0 auto;
-    background: url(../images/logo.png) no-repeat 36px 24px;
+    background: url(../images/logo.png) no-repeat 39px 17px;
     height: 100%;
     position: relative;
+    background-size: 190px auto;
 }
 .logoWrapper .homeLink{
     display: block;
     width: 252px;
-    height: 78px;
+    height: 64px;
     position: absolute;
     left: 29px;
     top: 18px;
@@ -190,7 +192,7 @@ h2{
 .banner .introFont h2{
     font-size: 16px;
     
-    font-weight: 100;
+    font-weight: bold;
 }
 .banner .feture img{
     float: left;
@@ -199,7 +201,7 @@ h2{
     margin-right: 35px;
 }
 .banner .feture .intro{
-    text-align: left;
+    /* text-indent: 2em; */
     
 }
 .banner .feture .wrapper{
