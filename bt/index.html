@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>测试题</title>
+  <style type="text/css">
+body{
+  width: 1000px;
+  margin: 0 auto;
+}
+p{
+  color: #888;
+  padding-left: 10px;
+  line-height: 1.2;
+}
+p.intro{
+  padding-left: 5px;
+  color: #333;
+
+}
+  </style>
+</head>
+<body>
+	
+<h2>腐蚀的画</h2>
+<p>
+1.一个漂亮的画作在经过几千年岁月的洗礼下，部分地方已经被腐蚀了，像一个孤独的老人，满脸爬满了皱纹.<br />
+2.但在一个晚上，dorsy突然发现，这些腐蚀的部分中，隐藏着岁月留下的密秘。请你帮助dorsy寻找这些秘密。
+</p>
+
+<img src="ged/1.png" id="gepic" alt="" />
+
+<br />
+
+<h2>寻找过程</h2>
+<h3>Step1: 拿到图像数据</h3>
+<p>请使用canvas操作将图片绘制到canvas上，canvas宽高要和图片一致（drawImage方法)</p>
+<p>然后通过canvas API拿到图片的像素数据(getImageData)</p>
+<p>图像的每个点由四个信息组成，分别是代表RGBA，比如rgba(24,23,122,11) 代表一个颜色点</p>
+
+<p class="intro">成功帮dorsy拿到图像的数据了，这些大量的数据，一时让dorsy不知所措，面对如此大规模的数据，做为前端开发的dorsy从来没有遇到过，请继续帮助他找到这里隐藏的秘密吧</p>
+<h3>Step2: 像计算机一样阅读</h3>
+<p class="intro">在计算机的世界里，只有0和1。。。</p>
+<p>对rgb的四个信息，想办法让它变成0和1，这样计算机就可以阅读了，注意：跳过A中的信息，即第四个通道Alpha中没有隐藏数据</p>
+
+<p class="intro">现在，dorsy拿到了大量的0101数据，这些01010数据又分别代表什么呢？是不是计算机直接可以阅读呢，可是我看不到</p>
+
+<h3>Step3: 变成ASCII字符</h3>
+<p>将上面的01数据8位截取变成ASCII字符</p>
+
+<p class="intro">变成了ASCII字符的数据让dorsy变得更加难堪，很多看不懂的字符</p>
+<p class="intro">突然，dorsy发现这些数据中隐藏了AlloyImage几个字，难道这就是隐藏的秘密？</p>
+<p class="intro">显然没有这么简单，dorsy在试了无数次之后，发现原来这是数据的结束符标记，AlloyImage前面的数据才是真正的数据</p>
+
+<p>请截取AlloyImag前面的ASCII字符</p>
+
+<p class="intro">dorsy拿到ASCII字符，实际上它们的二进制码就是计算机可以阅读的数据了，可是我们人类还是看不到，怎么办？</p>
+
+<h3>Step4: 转成base64数据</h3>
+<p>请将上面的数据转成base64字符</p>
+
+<p class="intro">dorsy终于拿到了这些数据的base64字符，但要怎么把它们显示出来呢？</p>
+<p>请继续帮助dorsy完成后面的操作。。。</p>
+
+
+<p class="intro">终于，dorsy发现它是另外一张热辣的图片，上面还有一些红红的字，dorsy砰砰跳的心久久不能平静。。。</p>
+请输入上面图片中隐藏的红字
+<input name="hiddenkey" />
+<br />
+<br />
+<br />
+<br />
+</body>
+</html>
