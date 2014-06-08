@@ -28,7 +28,7 @@
         },
 
         flashPic: function(){
-            var picLength = 3; 
+            var picLength = 4; 
             var flashPic = document.getElementById("flashPic");
             var i = 0;
             var delayTime = 4000;
@@ -46,7 +46,7 @@
                 var img = new Image();
                 imgArr.push(img);
 
-                img.src = "images/intro" + (i + 1) + ".png";
+                img.src = "images/intro" + (i) + ".png";
                 img.onload = function(){
                 };
             }
@@ -63,7 +63,7 @@
                             }, delayTime);
                         });
                     }
-                    flashPic.src = "images/intro" + (i + 1) + ".png";
+                    flashPic.src = "images/intro" + (i) + ".png";
                 });
             };
 
