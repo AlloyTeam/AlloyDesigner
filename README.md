@@ -3,7 +3,7 @@ AlloyDesigner
 
 AlloyDesigner是一款致力于提高前端生产效率的浏览器内运行工具，AlloyDesigner + Chrome F12(Especially with WorkSpace)  打造前端新的开发和测试模式
 
-##What is AlloyDesigner?
+## What is AlloyDesigner?
 >1.AlloyDesigner是运行在页面上的一段JS代码，它只出现在开发、体验和测试阶段，不随项目发布
 
 >2.AlloyDesigner主要功能是将页面引入由设计师设计的视觉文件，与当前开发页面形成对比、参照，从而进行开发和测试
